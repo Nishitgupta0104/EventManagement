@@ -23,4 +23,9 @@ public class VendorController {
     public Vendor createVendor(@RequestBody Vendor vendor) {
         return vendorService.createVendor(vendor);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteEvent(@PathVariable Long id) {
+        vendorService.deleteVendor(id);
+    }
 }

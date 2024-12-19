@@ -26,8 +26,8 @@ public class Event {
     private LocalDateTime endTime;
 
     @ManyToOne
-    private Venue venue;
+    private Venue venue_id;
 
     @ManyToOne
-    private Vendor vendor;
+    private Vendor vendor_id;
 }

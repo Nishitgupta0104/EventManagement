@@ -20,4 +20,8 @@ public class VendorService {
     public Vendor createVendor(Vendor vendor) {
         return vendorRepository.save(vendor);
     }
+
+    public void deleteVendor(Long id) {
+        vendorRepository.deleteById(id);
+    }
 }
