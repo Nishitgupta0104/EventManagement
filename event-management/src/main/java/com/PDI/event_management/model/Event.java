@@ -2,8 +2,9 @@ package com.PDI.event_management.model;
 
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
@@ -11,23 +12,26 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 public class Event {
-
+    // Other getters and setters for `id`, `name`, and `vendors`
+    @Setter
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @NotNull
+    @Setter
+    @Getter
     private String name;
-
-    @NotNull
     private LocalDateTime startTime;
-
-    @NotNull
     private LocalDateTime endTime;
 
+    // Getter and Setter for `venue`
+    @Setter
+    @Getter
     @ManyToOne
-    private Venue venue_id;
+    @JoinColumn(name = "venue_id", referencedColumnName = "id")
+    private Venue venue;
 
     @ManyToOne
-    private Vendor vendor_id;
+    @JoinColumn(name = "vendor_id", referencedColumnName = "id")
+    private Vendor vendor;
 }
